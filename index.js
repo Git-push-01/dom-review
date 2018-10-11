@@ -1,56 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const buttonArea = document.getElementById('buttons')
-  const multTable = document.getElementById('mult-table')
+  let buttonArea = document.getElementById('buttons')
+  let multTable = document.getElementById('mult-table')
   createButtons()
-  generateMultiplicationTable(1)
+  createMultiplicationTable(1)
+  let allButtons = document.querySelectorAll('.multiplier')
 
-  let buttons = document.querySelectorAll('.multiplier')
-  buttons.forEach(button => {
-    console.log(button)
+  allButtons.forEach(button => {
     button.addEventListener("click", (event) => {
-      console.log("Clicked")
-      let number = parseInt(event.target.innerText)
-      generateMultiplicationTable(number)
+      let number = event.target.innerText
+      console.log(number)
+      multTable.innerHTML = ''
+      createMultiplicationTable(number)
     })
   })
 
-  // debugger;
-
   function createButtons(){
-    for (let i = 0; i <= 10; i++){
-      buttonArea.innerHTML += `<button class="multiplier">${i}</button>`
-      // let newButton = document.createElement('button');
-      // newButton.className = "multiplier"
-      // newButton.innerText = `${i}`
-      // buttonArea.append(newButton)
+    for (let i = 1; i <=10; i++){
+      // buttonArea.innerHTML += `<button class="multiplier">${i}</button>`
+      let newButton = document.createElement('button')
+      newButton.innerText = `${i}`
+      newButton.className = "multiplier"
+      buttonArea.append(newButton)
     }
   }
 
-    function generateMultiplicationTable(num){
-      multTable.innerHTML = '';
-      for (let i = 1; i <= 10; i++){
-        let newRow = `<tr>
-        <td>
-          ${num} X ${i} = ${num*i}
-        </td>
-        </tr>`
-        multTable.innerHTML += newRow;
-      }
+  function createMultiplicationTable(number){
+    for (let i = 1; i <= 10; i++){
+      let newRow = `<tr><td>${i} X ${number} = ${i*number}`
+      multTable.innerHTML += newRow
     }
-
-
-
-
-
-
-
-
-
-
-
+  }
 
 
 
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
