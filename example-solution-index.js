@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function attachButtons () {
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 11; i++) {
       let button = document.createElement('button')
       button.innerText = `${i}`
       button.className = 'multiplier'
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleButtonClick (event) {
     if (event.target.className === 'multiplier'){
       tableArea.innerHTML = ''
+      console.log(event.target)
       let number = parseInt(event.target.innerText)
       generateRows(number)
     }
